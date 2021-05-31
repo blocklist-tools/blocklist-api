@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  db:
+    hostname: db
+    image: postgres:13.3
+    restart: always
+    secrets:
+      - postgres_password
+    environment:
+      POSTGRES_USER: blocklist
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+    shm_size: 1g
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+      - ./db/init-sql:/docker-entrypoint-initdb.d
+      - ./db/backups:/var/backups
+    ports:
+      - 8899:5432
+
+  api:
+    restart: always
+    build:
+      context: ./
+    ports:
+      - 8181:8080
+
+  dev:
+    image: maven:3.8-openjdk-16-slim
+    volumes:
+      - "${PWD}/:/opt/blocklist-api"
+      - maven-repo:/root/.m2
+    working_dir: /opt/blocklist-api
+    environment:
+      POSTGRES_USER: blocklist
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      AUTH_TOKEN_FILE: /run/secrets/auth_token
+    secrets:
+      - postgres_password
+      - auth_token
+    command: ['mvn', 'spring-boot:run']
+    ports:
+      - 8484:8080
+
+  mvn:
+    image: maven:3.8-openjdk-16-slim
+    volumes:
+      - "${PWD}/:/opt/blocklist-api"
+      - "${HOME}/.m2:/root/.m2"
+    working_dir: /opt/blocklist-api
+    ports:
+      - 8181:8080
+
+secrets:
+  postgres_password:
+    file: ./.secrets/db-password.txt
+  auth_token:
+    file: ./.secrets/auth-token.txt
+
+volumes:
+  maven-repo:
