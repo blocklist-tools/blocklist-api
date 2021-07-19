@@ -2,8 +2,12 @@ package com.developerdan.blocklist.api;
 
 import com.developerdan.blocklist.api.configuration.AppConfig;
 import com.developerdan.blocklist.api.entity.Blocklist;
+import com.developerdan.blocklist.api.entity.Entry;
+import com.developerdan.blocklist.api.entity.EntryPeriod;
 import com.developerdan.blocklist.api.entity.Version;
 import com.developerdan.blocklist.api.repository.BlocklistRepository;
+import com.developerdan.blocklist.api.repository.EntryPeriodRepository;
+import com.developerdan.blocklist.api.repository.EntryRepository;
 import com.developerdan.blocklist.api.repository.VersionRepository;
 import com.developerdan.blocklist.api.responses.DomainResponse;
 import com.developerdan.blocklist.tools.Domain;
@@ -39,6 +43,10 @@ public class BlocklistApiApplication {
 	private BlocklistRepository blocklistRepository;
 	@Autowired
 	private VersionRepository versionRepository;
+	@Autowired
+	private EntryRepository entryRepository;
+	@Autowired
+	private EntryPeriodRepository entryPeriodRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlocklistApiApplication.class, args);
@@ -70,6 +78,7 @@ public class BlocklistApiApplication {
 	public ResponseEntity<Version> createVersion(@RequestHeader(value = AUTH_HEADER_NAME) String authToken,
 												 @Validated @RequestBody Version version) {
 		assertAuthenticated(authToken, "createVersion");
+		version.setFullyLoaded(false);
 		return new ResponseEntity<>(versionRepository.save(version), HttpStatus.CREATED);
 	}
 
@@ -103,6 +112,37 @@ public class BlocklistApiApplication {
 		return ResponseEntity.ok()
 				.headers(buildCacheHeaders(31536000)) // 1 year
 				.body(domains);
+	}
+
+	@PostMapping("/blocklists/{blocklistId}/versions/{versionId}/entries")
+	public ResponseEntity<Void> startEntryPeriod(@RequestHeader(value = AUTH_HEADER_NAME) String authToken,
+											     @PathVariable(value = "blocklistId") UUID blocklistId,
+										 		 @PathVariable(value = "versionId") UUID firstIncludedVersion,
+												 @Validated @RequestBody String entryValue) {
+		assertAuthenticated(authToken, "startEntryPeriod");
+		var domain = Domain.fromString(entryValue).orElseThrow();
+		var entry = loadOrCreateEntry(domain.toString());
+		new EntryPeriod(blocklistId, entry.getId(), firstIncludedVersion);
+		return ResponseEntity.status(201).build();
+	}
+
+	@PutMapping("/blocklists/{blocklistId}/versions/{lastVersionId}/entries")
+	public ResponseEntity<Void> endEntryPeriod(@RequestHeader(value = AUTH_HEADER_NAME) String authToken,
+											   @PathVariable(value = "blocklistId") UUID blocklistId,
+											   @PathVariable(value = "lastVersionId") UUID lastIncludedVersionId,
+											   @Validated @RequestBody String entryValue) {
+		assertAuthenticated(authToken, "endEntryPeriod");
+		var domain = Domain.fromString(entryValue).orElseThrow();
+		var entry = loadOrCreateEntry(domain.toString());
+		var entryPeriod = entryPeriodRepository.findMostRecentByBlocklistIdAndEntryId(blocklistId, entry.getId()).orElseThrow();
+		entryPeriod.setEndVersionId(lastIncludedVersionId);
+		entryPeriodRepository.save(entryPeriod);
+		return ResponseEntity.status(201).build();
+	}
+
+	private Entry loadOrCreateEntry(String value) {
+		var optionalEntry = entryRepository.findByValue(value);
+		return optionalEntry.orElseGet(() -> entryRepository.save(new Entry(value)));
 	}
 
 	private HttpHeaders buildCacheHeaders(int seconds) {

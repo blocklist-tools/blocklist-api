@@ -38,6 +38,9 @@ public class Version {
     @Column(nullable = false)
     private Instant lastSeen;
 
+    @Column(nullable = false)
+    private boolean isFullyLoaded;
+
     public Version() {
         // bean
     }
@@ -101,5 +104,13 @@ public class Version {
 
     public UUID getBlocklistId() {
         return blocklistId;
+    }
+
+    public boolean isFullyLoaded() {
+        return isFullyLoaded;
+    }
+
+    public void setFullyLoaded(boolean fullyLoaded) {
+        isFullyLoaded = fullyLoaded;
     }
 }

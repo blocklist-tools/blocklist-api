@@ -24,7 +24,8 @@ create table if not exists version
     raw_sha256          varchar(255)                                   not null,
     parsed_sha256       varchar(255)                                   not null,
     created_on          timestamp with time zone    default now()      not null,
-    last_seen           timestamp with time zone    default now()      not null
+    last_seen           timestamp with time zone    default now()      not null,
+    is_fully_loaded     boolean                                        not null
 );
 
 create table if not exists entry
