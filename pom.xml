@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.0</version>
+        <version>2.5.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.developerdan</groupId>
@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>16</java.version>
-        <blocklisttools.version>1.0.0</blocklisttools.version>
+        <blocklisttools.version>1.0.1</blocklisttools.version>
     </properties>
 
     <dependencies>
@@ -44,30 +44,6 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.developerdan</groupId>
-            <artifactId>blocklist-tools</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.developerdan</groupId>
-            <artifactId>blocklist-tools</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.developerdan</groupId>
-            <artifactId>blocklist-tools</artifactId>
-            <version>0.1.0</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <build>
@@ -80,8 +56,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>16</source>
-                    <target>16</target>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
                 </configuration>
             </plugin>
         </plugins>

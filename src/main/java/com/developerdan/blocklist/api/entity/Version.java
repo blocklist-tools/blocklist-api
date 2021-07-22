@@ -50,8 +50,10 @@ public class Version {
     }
 
     public void update(Version updatedVersion) {
-        this.lastSeen = Instant.now();
+        this.lastSeen = updatedVersion.lastSeen;
         this.numEntries = updatedVersion.numEntries;
+        this.isFullyLoaded = updatedVersion.isFullyLoaded;
+        this.parsedSha256 = updatedVersion.parsedSha256;
     }
 
     public UUID getId() {

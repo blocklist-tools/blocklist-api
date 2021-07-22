@@ -63,8 +63,8 @@ SELECT ep.*,
        sv.created_on AS period_start,
        ev.created_on AS period_end
 FROM entry_period ep
-         LEFT JOIN version sv ON ep.start_version_id = sv.id
-         LEFT JOIN version ev ON ep.end_version_id = sv.id;
+         LEFT JOIN version sv ON ep.start_version_id = sv.id and sv.is_fully_loaded is true
+         LEFT JOIN version ev ON ep.end_version_id = ev.id and ev.is_fully_loaded is true;
 
 
 create unique index if not exists version_blocklist_id_created_on_uindex

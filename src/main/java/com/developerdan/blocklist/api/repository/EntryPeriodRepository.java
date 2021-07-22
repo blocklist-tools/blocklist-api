@@ -10,8 +10,8 @@ import java.util.UUID;
 public interface EntryPeriodRepository extends PagingAndSortingRepository<EntryPeriod, UUID> {
 
     @Query(value = """
-            select ep.value from entry_period ep
-                left join version sv ON ep.start_version_id = sv.id
+            select ep.* from entry_period ep
+                left join version sv ON ep.start_version_id = sv.id and sv.is_fully_loaded is true
                 where ep.blocklist_id = :blocklistId
                   and ep.entry_id = :entryId
                 order by sv.created_on desc

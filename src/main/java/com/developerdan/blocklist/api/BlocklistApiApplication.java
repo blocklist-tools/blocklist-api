@@ -23,6 +23,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -79,6 +80,11 @@ public class BlocklistApiApplication {
 												 @Validated @RequestBody Version version) {
 		assertAuthenticated(authToken, "createVersion");
 		version.setFullyLoaded(false);
+		if (version.getCreatedOn() == null) {
+			var now = Instant.now();
+			version.setCreatedOn(now);
+			version.setLastSeen(now);
+		}
 		return new ResponseEntity<>(versionRepository.save(version), HttpStatus.CREATED);
 	}
 
@@ -100,7 +106,7 @@ public class BlocklistApiApplication {
 	}
 
 	@GetMapping("/versions/{versionId}/entries")
-	public ResponseEntity<Collection<DomainResponse>> getEntries(@RequestHeader(value = AUTH_HEADER_NAME) String authToken,
+	public ResponseEntity<String> getEntries(@RequestHeader(value = AUTH_HEADER_NAME) String authToken,
 																 @PathVariable(value = "versionId") UUID versionId) {
 		assertAuthenticated(authToken, "getEntries");
 		var entries = versionRepository.findAllEntriesByVersion(versionId);
@@ -109,9 +115,14 @@ public class BlocklistApiApplication {
 												.map(Optional::get)
 												.map(DomainResponse::fromDomain)
 												.collect(Collectors.toCollection(TreeSet::new));
+
 		return ResponseEntity.ok()
 				.headers(buildCacheHeaders(31536000)) // 1 year
-				.body(domains);
+				.body(domains.stream()
+						.map(DomainResponse::toString)
+						.collect(Collectors.joining("\n"))
+						+ "\n"
+				);
 	}
 
 	@PostMapping("/blocklists/{blocklistId}/versions/{versionId}/entries")
@@ -121,8 +132,9 @@ public class BlocklistApiApplication {
 												 @Validated @RequestBody String entryValue) {
 		assertAuthenticated(authToken, "startEntryPeriod");
 		var domain = Domain.fromString(entryValue).orElseThrow();
-		var entry = loadOrCreateEntry(domain.toString());
-		new EntryPeriod(blocklistId, entry.getId(), firstIncludedVersion);
+		var entry = loadOrCreateEntry(domain);
+		var entryPeriod = new EntryPeriod(blocklistId, entry.getId(), firstIncludedVersion);
+		entryPeriodRepository.save(entryPeriod);
 		return ResponseEntity.status(201).build();
 	}
 
@@ -133,16 +145,16 @@ public class BlocklistApiApplication {
 											   @Validated @RequestBody String entryValue) {
 		assertAuthenticated(authToken, "endEntryPeriod");
 		var domain = Domain.fromString(entryValue).orElseThrow();
-		var entry = loadOrCreateEntry(domain.toString());
+		var entry = loadOrCreateEntry(domain);
 		var entryPeriod = entryPeriodRepository.findMostRecentByBlocklistIdAndEntryId(blocklistId, entry.getId()).orElseThrow();
 		entryPeriod.setEndVersionId(lastIncludedVersionId);
 		entryPeriodRepository.save(entryPeriod);
 		return ResponseEntity.status(201).build();
 	}
 
-	private Entry loadOrCreateEntry(String value) {
-		var optionalEntry = entryRepository.findByValue(value);
-		return optionalEntry.orElseGet(() -> entryRepository.save(new Entry(value)));
+	private Entry loadOrCreateEntry(Domain domain) {
+		var optionalEntry = entryRepository.findByValue(domain.toString());
+		return optionalEntry.orElseGet(() -> entryRepository.save(Entry.fromDomain(domain)));
 	}
 
 	private HttpHeaders buildCacheHeaders(int seconds) {
@@ -154,8 +166,8 @@ public class BlocklistApiApplication {
 
 	private void assertAuthenticated(String header, String resourceName) {
 		if (!AppConfig.authToken().equals(header)) {
-			LOGGER.warn("Unauthenticated access attempt to {}", resourceName);
-			throw new SecurityException("Invalid or missing API Token!");
+			LOGGER.warn("Unauthenticated access attempt to {}: {}", resourceName, header);
+			throw new SecurityException("Invalid or missing API Token for " + resourceName + "!");
 		}
 	}
 }
