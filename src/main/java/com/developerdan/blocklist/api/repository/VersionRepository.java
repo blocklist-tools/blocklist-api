@@ -29,4 +29,16 @@ public interface VersionRepository extends PagingAndSortingRepository<Version, U
             """, nativeQuery = true
     )
     public Collection<String> findAllEntriesByVersion(UUID versionId);
+
+    @Query(value = """
+            select v.*
+                        from version v
+                        join (select created_on, blocklist_id from version where id = :versionId) as current_version
+                        on v.blocklist_id = current_version.blocklist_id
+                        and v.created_on < current_version.created_on
+                        order by v.created_on desc
+                        limit 1
+            """, nativeQuery = true
+    )
+    public Version getVersionBefore(UUID versionId);
 }

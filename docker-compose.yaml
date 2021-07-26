@@ -29,6 +29,7 @@ services:
       POSTGRES_USER: blocklist
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       AUTH_TOKEN_FILE: /run/secrets/auth_token
+      DNS_SERVERS: 192.168.4.113:5053
     ports:
       - 8484:8080
 
@@ -42,6 +43,7 @@ services:
       POSTGRES_USER: blocklist
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       AUTH_TOKEN_FILE: /run/secrets/auth_token
+      DNS_SERVERS: 192.168.4.113:5053
     secrets:
       - postgres_password
       - auth_token

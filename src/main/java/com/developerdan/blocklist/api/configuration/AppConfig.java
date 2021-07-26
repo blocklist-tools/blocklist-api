@@ -17,6 +17,8 @@ public class AppConfig {
 
     private static String authToken;
 
+    private static String[] dnsServers;
+
     private AppConfig() {
 
     }
@@ -37,11 +39,19 @@ public class AppConfig {
         }
     }
 
-    public static List<String> corsOrigins() {
-        var corsOrigins = System.getenv("CORES_ORIGINS");
-        if (corsOrigins == null || corsOrigins.isBlank()) {
-            return new ArrayList<>();
+    public static String[] dnsServers()  {
+        if (dnsServers == null) {
+            dnsServers = loadDnsServers();
         }
-        return Arrays.asList(corsOrigins.split("\\s*,\\s*"));
+        return dnsServers;
+    }
+
+    private static String[] loadDnsServers() {
+        var dnsServers = System.getenv("DNS_SERVERS");
+        if (dnsServers == null || dnsServers.isBlank()) {
+            LOGGER.error("Unable to read DNS_SERVERS");
+            dnsServers = "";
+        }
+        return dnsServers.split("\\s*,\\s*");
     }
 }

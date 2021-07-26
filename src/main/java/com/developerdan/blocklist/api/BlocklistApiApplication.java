@@ -10,7 +10,11 @@ import com.developerdan.blocklist.api.repository.EntryPeriodRepository;
 import com.developerdan.blocklist.api.repository.EntryRepository;
 import com.developerdan.blocklist.api.repository.VersionRepository;
 import com.developerdan.blocklist.api.responses.DomainResponse;
+import com.developerdan.blocklist.api.responses.EntrySearchResponse;
+import com.developerdan.blocklist.tools.DnsQuery;
+import com.developerdan.blocklist.tools.DnsResponse;
 import com.developerdan.blocklist.tools.Domain;
+import com.developerdan.blocklist.tools.ListDiff;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +27,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.time.Instant;
-import java.util.Collection;
 import java.util.List;
+import java.util.NavigableSet;
 import java.util.Optional;
 import java.util.TreeSet;
 import java.util.UUID;
@@ -33,7 +38,7 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 @RestController
-@CrossOrigin(origins = {"https://blocklist-tools.developerdan.com"})
+@CrossOrigin(origins = {"http://localhost:3000"})
 public class BlocklistApiApplication {
 
 	private static final String AUTH_HEADER_NAME = "Authorization-Token";
@@ -51,6 +56,35 @@ public class BlocklistApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(BlocklistApiApplication.class, args);
+	}
+
+	@GetMapping("/dns-query")
+	public ResponseEntity<DnsResponse> dnsQuery(@RequestParam(value = "name") String name,
+												@RequestParam(value = "type") String type) {
+		try {
+			DnsQuery.resolvers(AppConfig.dnsServers());
+			var domain = Domain.fromString(name).orElseThrow();
+			var queryResponse = DnsQuery.dig(domain, type);
+			return ResponseEntity.ok()
+					.headers(buildCacheHeaders(3600)) // 1 hour
+					.body(queryResponse);
+		} catch (IllegalArgumentException ex) {
+			LOGGER.error("{} Error, {}: {}", ex.getClass(), ex.getMessage(), ex.getStackTrace());
+			return ResponseEntity.unprocessableEntity().build();
+		} catch (IOException ex) {
+			LOGGER.error("{} Error, {}: {}", ex.getClass(), ex.getMessage(), ex.getStackTrace());
+			return new ResponseEntity<>(HttpStatus.SERVICE_UNAVAILABLE);
+		}
+	}
+
+	@GetMapping("/entries/search")
+	public ResponseEntity<EntrySearchResponse> entrySearch(@RequestParam(value = "q") String query) {
+		var domain = Domain.fromString(query).orElseThrow();
+		var summaries = blocklistRepository.findAllSummariesByEntry(domain.toString());
+		var response = new EntrySearchResponse(domain.toString(), summaries);
+		return ResponseEntity.ok()
+				.headers(buildCacheHeaders(43200)) // 6 hours
+				.body(response);
 	}
 
 	@GetMapping("/blocklists")
@@ -126,6 +160,36 @@ public class BlocklistApiApplication {
 						.collect(Collectors.joining("\n"))
 						+ "\n"
 				);
+	}
+
+	@GetMapping("/versions/{baseVersion}/diff")
+	public ResponseEntity<String> diff(@PathVariable(value = "baseVersion") UUID secondVersion) {
+		var baseVersion = versionRepository.getVersionBefore(secondVersion);
+		return diff(baseVersion.getId(), secondVersion);
+	}
+
+	@GetMapping("/versions/{baseVersion}/diff/{newVersion}")
+	public ResponseEntity<String> diff(@PathVariable(value = "baseVersion") UUID baseVersion,
+									   @PathVariable(value = "newVersion") UUID newVersion) {
+		NavigableSet<Domain> firstList = versionRepository
+				.findAllEntriesByVersion(baseVersion)
+				.parallelStream()
+				.map(Domain::fromString)
+				.filter(Optional::isPresent)
+				.map(Optional::get)
+				.collect(Collectors.toCollection(TreeSet::new));
+		NavigableSet<Domain> secondList = versionRepository
+				.findAllEntriesByVersion(newVersion)
+				.parallelStream()
+				.map(Domain::fromString)
+				.filter(Optional::isPresent)
+				.map(Optional::get)
+				.collect(Collectors.toCollection(TreeSet::new));
+
+		var diff = ListDiff.domainList(firstList, secondList);
+		return ResponseEntity.ok()
+				.headers(buildCacheHeaders(2629800)) // 1 month
+				.body(diff);
 	}
 
 	@PostMapping("/blocklists/{blocklistId}/versions/{versionId}/entries")
