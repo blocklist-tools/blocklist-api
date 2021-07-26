@@ -85,6 +85,9 @@ public class BlocklistApiApplication {
 			version.setCreatedOn(now);
 			version.setLastSeen(now);
 		}
+		if (version.getLastSeen() == null) {
+			version.setLastSeen(version.getCreatedOn());
+		}
 		return new ResponseEntity<>(versionRepository.save(version), HttpStatus.CREATED);
 	}
 
