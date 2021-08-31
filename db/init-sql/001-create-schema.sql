@@ -294,7 +294,7 @@ insert into blocklist(id, name, format, download_url, homepage_url, issues_url, 
 values ('2087f7a9-e6b7-4e64-ac76-8072c5791e08',
         'PolishFiltersTeam: KADhosts',
         'hosts',
-        'https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts_without_controversies.txt',
+        'https://raw.githubusercontent.com/PolishFiltersTeam/KADhosts/master/KADhosts.txt',
         'https://kadantiscam.netlify.app/',
         'https://github.com/PolishFiltersTeam/KADhosts/issues',
         'https://github.com/PolishFiltersTeam/KADhosts/blob/master/LICENSE',
@@ -602,8 +602,9 @@ on conflict do nothing;
 
 
 -- Bigdargon: hostsVN
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Bigdargon: hostsVN',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('8ab2c1ce-2a58-4db8-8db6-17b1bce71450',
+        'Bigdargon: hostsVN',
         'hosts',
         'https://raw.githubusercontent.com/bigdargon/hostsVN/master/hosts',
         'https://bigdargon.github.io/hostsVN/',
@@ -612,8 +613,9 @@ values ('Bigdargon: hostsVN',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Jdlingyu: Ad-wars',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('cef916f9-7884-48ed-949f-e7af63b7447d',
+        'Jdlingyu: Ad-wars',
         'hosts',
         'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts',
         'https://github.com/jdlingyu/ad-wars',
@@ -622,8 +624,9 @@ values ('Jdlingyu: Ad-wars',
         'Unknown')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Easylist: easyprivacy',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('48d1abcb-b79d-4100-bab6-3424c3774d2d',
+        'Easylist: easyprivacy',
         'domain',
         'https://v.firebog.net/hosts/Easyprivacy.txt',
         'https://easylist.to/',
@@ -632,18 +635,20 @@ values ('Easylist: easyprivacy',
         'Attribution 3.0 Unported')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Fabrice Prigent: Ads',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('9601d9dd-4969-420d-a20d-c66e7fd24933',
+        'Fabrice Prigent: Ads',
         'domain',
         'https://v.firebog.net/hosts/Prigent-Ads.txt',
         'https://dsi.ut-capitole.fr/blacklists/',
         'https://dsi.ut-capitole.fr/cgi-bin/squidguard_modify.cgi',
-        'http://creativecommons.org/licenses/by-sa/4.0/',
+        'https://creativecommons.org/licenses/by-sa/4.0/',
         'Creative Commons Contract')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Quidsup: Trackers',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('4a91a237-36db-40f4-a818-b3eb7e13939b',
+        'Quidsup: Trackers',
         'domain',
         'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-blocklist.txt',
         'https://quidsup.net/notrack/blocklist.php',
@@ -652,8 +657,9 @@ values ('Quidsup: Trackers',
         'GNU General Public License v3.0')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Fademind: 2o7 Network Trackers',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('db73427f-daae-47b7-b36c-461b93597151',
+        'Fademind: 2o7 Network Trackers',
         'hosts',
         'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.2o7Net/hosts',
         'https://github.com/FadeMind/hosts.extras',
@@ -695,8 +701,9 @@ values ('6635d010-0924-47fb-853c-30e32198000c',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Geoffrey Frogeye: First-Party Trackers',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('4759abf8-f4ee-4bbc-b211-3d50c193dee1',
+        'Geoffrey Frogeye: First-Party Trackers',
         'hosts',
         'https://hostfiles.frogeye.fr/firstparty-trackers-hosts.txt',
         'https://geoffrey.frogeye.fr',
@@ -705,8 +712,9 @@ values ('Geoffrey Frogeye: First-Party Trackers',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Geoffrey Frogeye: Multi-Party Trackers',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('98ca0971-34b8-42d0-b67c-881f79baf47f',
+        'Geoffrey Frogeye: Multi-Party Trackers',
         'hosts',
         'https://hostfiles.frogeye.fr/multiparty-trackers-hosts.txt',
         'https://geoffrey.frogeye.fr',
@@ -715,8 +723,9 @@ values ('Geoffrey Frogeye: Multi-Party Trackers',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Perflyst: Android Trackers',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('4c25278a-7261-448c-97d7-e29d1f8f6d31',
+        'Perflyst: Android Trackers',
         'domain',
         'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/android-tracking.txt',
         'https://github.com/Perflyst/PiHoleBlocklist/',
@@ -725,8 +734,9 @@ values ('Perflyst: Android Trackers',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Perflyst: SmartTV Domains',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('e06d1c88-9175-4675-b8ad-ecd4d5ea8565',
+        'Perflyst: SmartTV Domains',
         'domain',
         'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/SmartTV.txt',
         'https://github.com/Perflyst/PiHoleBlocklist/',
@@ -735,8 +745,9 @@ values ('Perflyst: SmartTV Domains',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Perflyst: Amazon FireTV Domains',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('caff854d-f482-498c-a4ad-6186e7ea9bd4',
+        'Perflyst: Amazon FireTV Domains',
         'domain',
         'https://raw.githubusercontent.com/Perflyst/PiHoleBlocklist/master/AmazonFireTV.txt',
         'https://github.com/Perflyst/PiHoleBlocklist/',
@@ -745,8 +756,9 @@ values ('Perflyst: Amazon FireTV Domains',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('DandelionSprout: Anti Malware Filter',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('1e7451ee-c1dd-4a11-b475-20a95858fb2d',
+        'DandelionSprout: Anti Malware Filter',
         'hosts',
         'https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Alternate%20versions%20Anti-Malware%20List/AntiMalwareHosts.txt',
         'https://github.com/DandelionSprout/adfilt',
@@ -766,8 +778,9 @@ values ('59073d0b-3882-49b0-98b2-a05ed6bf60f3',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Disconnect: Malvertising',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('a8428cd2-e83d-43e4-9cbc-de1928d98120',
+        'Disconnect: Malvertising',
         'domain',
         'https://s3.amazonaws.com/lists.disconnect.me/simple_malvertising.txt',
         'https://disconnect.me',
@@ -776,8 +789,9 @@ values ('Disconnect: Malvertising',
         'GPLv3')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Fabrice Prigent: Cryptojacking',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('b4bf805e-024c-4f26-ae14-38fb69207394',
+        'Fabrice Prigent: Cryptojacking',
         'domain',
         'https://v.firebog.net/hosts/Prigent-Crypto.txt',
         'https://dsi.ut-capitole.fr/blacklists/',
@@ -786,38 +800,41 @@ values ('Fabrice Prigent: Cryptojacking',
         'Creative Commons Contract')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('RiskAnalytics: Immortal Malware Domains',
-        'domain',
-        'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt',
-        'http://www.malwaredomains.com/',
-        'http://www.malwaredomains.com/?page_id=13',
-        'http://www.malwaredomains.com/?page_id=1508',
-        'Noncommercial')
-on conflict do nothing;
+-- insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+-- values ('d46fa25b-ccb7-4bd7-8470-dedcff801828',
+--         'RiskAnalytics: Immortal Malware Domains',
+--         'domain',
+--         'https://mirror.cedia.org.ec/malwaredomains/immortal_domains.txt',
+--         'http://www.malwaredomains.com/',
+--         'http://www.malwaredomains.com/?page_id=13',
+--         'http://www.malwaredomains.com/?page_id=1508',
+--         'Noncommercial')
+-- on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Malware Domain List',
-        'hosts',
-        'https://www.malwaredomainlist.com/hostslist/hosts.txt',
-        'https://www.malwaredomainlist.com/',
-        'https://www.malwaredomainlist.com/forums/',
-        'https://www.malwaredomainlist.com/',
-        'Can be used for free by anyone')
-on conflict do nothing;
+-- insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+-- values ('a1e9353e-27a1-4fc6-99d0-b2aac5390a24',
+--         'Malware Domain List',
+--         'hosts',
+--         'https://www.malwaredomainlist.com/hostslist/hosts.txt',
+--         'https://www.malwaredomainlist.com/',
+--         'https://www.malwaredomainlist.com/forums/',
+--         'https://www.malwaredomainlist.com/',
+--         'Can be used for free by anyone')
+-- on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Mandiant APT1 Report',
-        'domain',
-        'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt',
-        'https://bitbucket.org/ethanr/dns-blacklists',
-        'https://bitbucket.org/ethanr/dns-blacklists/issues?status=new&status=open',
-        'https://bitbucket.org/ethanr/dns-blacklists',
-        'Unknown')
-on conflict do nothing;
+-- insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
+-- values ('Mandiant APT1 Report',
+--         'domain',
+--         'https://bitbucket.org/ethanr/dns-blacklists/raw/8575c9f96e5b4a1308f2f12394abd86d0927a4a0/bad_lists/Mandiant_APT1_Report_Appendix_D.txt',
+--         'https://bitbucket.org/ethanr/dns-blacklists',
+--         'https://bitbucket.org/ethanr/dns-blacklists/issues?status=new&status=open',
+--         'https://bitbucket.org/ethanr/dns-blacklists',
+--         'Unknown')
+-- on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Phishing Army: Extended Blocklist',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('fb0f255a-9325-4f00-b05f-4157eec4290b',
+        'Phishing Army: Extended Blocklist',
         'domain',
         'https://phishing.army/download/phishing_army_blocklist_extended.txt',
         'https://phishing.army/',
@@ -826,8 +843,9 @@ values ('Phishing Army: Extended Blocklist',
         'Creative Commons Attribution-NonCommercial 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Quidsup: Malicious',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('e7ee4493-1c7c-4e5f-908d-cb36d0483627',
+        'Quidsup: Malicious',
         'domain',
         'https://gitlab.com/quidsup/notrack-blocklists/raw/master/notrack-malware.txt',
         'https://quidsup.net/notrack/blocklist.php',
@@ -836,8 +854,9 @@ values ('Quidsup: Malicious',
         'GNU General Public License v3.0')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Shalla: Malicious',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('f88d90a7-8b69-496a-a84f-905098430e18',
+        'Shalla: Malicious',
         'domain',
         'https://v.firebog.net/hosts/Shalla-mal.txt',
         'http://www.shallalist.de/',
@@ -846,8 +865,9 @@ values ('Shalla: Malicious',
         'Shalla''s Blacklists - Licence')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Spam404',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('aeda1bce-2703-44c9-b6bf-e7005e2388f5',
+        'Spam404',
         'domain',
         'https://raw.githubusercontent.com/Spam404/lists/master/main-blacklist.txt',
         'https://github.com/Spam404/lists',
@@ -856,8 +876,9 @@ values ('Spam404',
         'Creative Commons Attribution-ShareAlike 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Fademind: Risky Hosts',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('4b0d2a99-65f9-4600-87c0-88181a683b54',
+        'Fademind: Risky Hosts',
         'hosts',
         'https://raw.githubusercontent.com/FadeMind/hosts.extras/master/add.Risk/hosts',
         'https://github.com/FadeMind/hosts.extras',
@@ -866,8 +887,9 @@ values ('Fademind: Risky Hosts',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('URLhaus: Malicious URL blocklist',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('ba1d7984-ac60-4e67-a382-43eb460c1f6d',
+        'URLhaus: Malicious URL blocklist',
         'hosts',
         'https://urlhaus.abuse.ch/downloads/hostfile/',
         'https://urlhaus.abuse.ch/',
@@ -876,8 +898,9 @@ values ('URLhaus: Malicious URL blocklist',
         'Creative Commons No Rights Reserved')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Fabrice Prigent: Malware',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('bc18072e-b075-4696-bdea-0b94376ef3b8',
+        'Fabrice Prigent: Malware',
         'domain',
         'https://v.firebog.net/hosts/Prigent-Malware.txt',
         'https://dsi.ut-capitole.fr/blacklists/',
@@ -886,8 +909,9 @@ values ('Fabrice Prigent: Malware',
         'Creative Commons Contract')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('HorusTeknoloji: High Risk Phishing Blacklist',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('2579aa98-8de9-43c2-8769-20c66709c3b5',
+        'HorusTeknoloji: High Risk Phishing Blacklist',
         'domain',
         'https://raw.githubusercontent.com/HorusTeknoloji/TR-PhishingList/master/url-lists.txt',
         'https://github.com/HorusTeknoloji/TR-PhishingList',
@@ -896,28 +920,20 @@ values ('HorusTeknoloji: High Risk Phishing Blacklist',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('ZeroDot1: CoinBlockerLists',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('bee9c703-b471-46ce-947a-b8f3e814d9c3',
+        'ZeroDot1: CoinBlockerLists',
         'hosts',
-        'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser',
+        'https://gitlab.com/ZeroDot1/CoinBlockerLists/-/raw/master/hosts_browser',
         'https://gitlab.com/ZeroDot1/CoinBlockerLists',
         'https://gitlab.com/ZeroDot1/CoinBlockerLists/-/issues',
         'https://gitlab.com/ZeroDot1/CoinBlockerLists/-/blob/master/LICENSE',
         'GNU Affero General Public License')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Chad Mayfield: Blocklist Porn All',
-        'domain',
-        'https://zerodot1.gitlab.io/CoinBlockerLists/hosts_browser',
-        'https://gitlab.com/ZeroDot1/CoinBlockerLists',
-        'https://gitlab.com/ZeroDot1/CoinBlockerLists/-/issues',
-        'https://gitlab.com/ZeroDot1/CoinBlockerLists/-/blob/master/LICENSE',
-        'GNU Affero General Public License')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Chad Mayfield: Blocklist Porn All',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('fab0cf06-f5b5-4288-a9b2-cee1b968c658',
+        'Chad Mayfield: Blocklist Porn All',
         'domain',
         'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_all.list',
         'https://github.com/chadmayfield/my-pihole-blocklists',
@@ -926,8 +942,9 @@ values ('Chad Mayfield: Blocklist Porn All',
         'GNU General Public License v3.0')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Chad Mayfield: Blocklist Porn Top 1Mil',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('8d613288-e9ac-4d74-b9ba-288a902b7c7d',
+        'Chad Mayfield: Blocklist Porn Top 1Mil',
         'domain',
         'https://raw.githubusercontent.com/chadmayfield/my-pihole-blocklists/master/lists/pi_blocklist_porn_top1m.list',
         'https://github.com/chadmayfield/my-pihole-blocklists',
@@ -936,8 +953,9 @@ values ('Chad Mayfield: Blocklist Porn Top 1Mil',
         'GNU General Public License v3.0')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Anudeep ND: Facebook',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('6368a1d2-20f9-4423-8fb8-0f622f471f1a',
+        'Anudeep ND: Facebook',
         'hosts',
         'https://raw.githubusercontent.com/anudeepND/blacklist/master/facebook.txt',
         'https://github.com/anudeepND/blacklist',
@@ -946,8 +964,9 @@ values ('Anudeep ND: Facebook',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Anudeep ND: CoinMiner',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('24a440bd-16ff-414a-b74e-45144ad754f4',
+        'Anudeep ND: CoinMiner',
         'hosts',
         'https://raw.githubusercontent.com/anudeepND/blacklist/master/CoinMiner.txt',
         'https://github.com/anudeepND/blacklist',
@@ -956,8 +975,9 @@ values ('Anudeep ND: CoinMiner',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Steven Black Hosts: ad-hoc list',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('178a40e4-ad09-4be9-a605-4e2207a1de77',
+        'Steven Black Hosts: ad-hoc list',
         'hosts',
         'https://raw.githubusercontent.com/StevenBlack/hosts/master/data/StevenBlack/hosts',
         'http://stevenblack.com',
@@ -966,8 +986,9 @@ values ('Steven Black Hosts: ad-hoc list',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Mitchell Krog: Badd Boyz Hosts',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('df7d84f4-5a70-42eb-86a2-5e54b6af5a53',
+        'Mitchell Krog: Badd Boyz Hosts',
         'hosts',
         'https://raw.githubusercontent.com/mitchellkrogza/Badd-Boyz-Hosts/master/hosts',
         'https://github.com/mitchellkrogza/Badd-Boyz-Hosts',
@@ -976,8 +997,9 @@ values ('Mitchell Krog: Badd Boyz Hosts',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Tiuxo: ads',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('9c74ae92-0fd4-4b33-9088-3bfe72ca8720',
+        'Tiuxo: ads',
         'hosts',
         'https://raw.githubusercontent.com/tiuxo/hosts/master/ads',
         'https://github.com/tiuxo/hosts',
@@ -986,8 +1008,9 @@ values ('Tiuxo: ads',
         'Creative Commons Attribution 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Tiuxo: porn',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('d3e35ecf-b208-4060-b763-cbed67048abe',
+        'Tiuxo: porn',
         'hosts',
         'https://raw.githubusercontent.com/tiuxo/hosts/master/porn',
         'https://github.com/tiuxo/hosts',
@@ -996,8 +1019,9 @@ values ('Tiuxo: porn',
         'Creative Commons Attribution 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Sinfonietta: Pornography hosts',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('8e08d424-7d67-4a40-a953-4f865b924b3a',
+        'Sinfonietta: Pornography hosts',
         'hosts',
         'https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/pornography-hosts',
         'https://github.com/Sinfonietta/hostfiles',
@@ -1006,8 +1030,9 @@ values ('Sinfonietta: Pornography hosts',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Sinfonietta: Social media hosts',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('214dbd95-8f9f-4778-9b24-52a25ae3f884',
+        'Sinfonietta: Social media hosts',
         'hosts',
         'https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/social-hosts',
         'https://github.com/Sinfonietta/hostfiles',
@@ -1016,28 +1041,31 @@ values ('Sinfonietta: Social media hosts',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Sinfonietta: Gambling Hosts',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('88b11b63-e6bc-4e1e-a6b2-e6b42146f701',
+        'Sinfonietta: Gambling Hosts',
         'hosts',
-        'https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/social-hosts',
+        'https://raw.githubusercontent.com/Sinfonietta/hostfiles/master/gambling-hosts',
         'https://github.com/Sinfonietta/hostfiles',
         'https://github.com/Sinfonietta/hostfiles/issues',
         'https://github.com/Sinfonietta/hostfiles/blob/master/LICENSE',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Clefspeare13: Porn Hosts',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('517994ca-b2ab-42a1-9524-6b44d402da1b',
+        'Clefspeare13: Porn Hosts',
         'hosts',
-        'https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/0.0.0.0/hosts',
+        'https://raw.githubusercontent.com/Clefspeare13/pornhosts/master/download_here/0.0.0.0/hosts',
         'https://github.com/Clefspeare13/pornhosts',
         'https://github.com/Clefspeare13/pornhosts/issues',
         'https://github.com/Clefspeare13/pornhosts/blob/master/LICENSE',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Marktron: fakenews',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('901339ff-fe52-4326-a97b-71a9d0516693',
+        'Marktron: fakenews',
         'hosts',
         'https://raw.githubusercontent.com/marktron/fakenews/master/fakenews',
         'https://github.com/marktron/fakenews',
@@ -1046,8 +1074,9 @@ values ('Marktron: fakenews',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Cyber Threat Coalition: Vetted Domain',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('913672ce-58ba-45e1-b851-68cdb99572ec',
+        'Cyber Threat Coalition: Vetted Domain',
         'domain',
         'https://blocklist.cyberthreatcoalition.org/vetted/domain.txt',
         'https://www.cyberthreatcoalition.org/',
@@ -1056,8 +1085,9 @@ values ('Cyber Threat Coalition: Vetted Domain',
         'Creative Commons Attribution-ShareAlike 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Jerryn70: GoodbyeAds',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('120524b2-d9e9-4325-8f38-ab5a987af58c',
+        'Jerryn70: GoodbyeAds',
         'hosts',
         'https://raw.githubusercontent.com/jerryn70/GoodbyeAds/master/Hosts/GoodbyeAds.txt',
         'https://github.com/jerryn70/GoodbyeAds',
@@ -1066,118 +1096,9 @@ values ('Jerryn70: GoodbyeAds',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Spark',
-        'domain',
-        'https://block.energized.pro/spark/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Blu',
-        'domain',
-        'https://block.energized.pro/blu/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Blu GO',
-        'domain',
-        'https://block.energized.pro/bluGo/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Basic',
-        'domain',
-        'https://block.energized.pro/basic/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Porn',
-        'domain',
-        'https://block.energized.pro/porn/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Ultimate',
-        'domain',
-        'https://block.energized.pro/ultimate/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Unified',
-        'domain',
-        'https://block.energized.pro/unified/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Xtreme',
-        'domain',
-        'https://block.energized.pro/extensions/xtreme/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Regional',
-        'domain',
-        'https://block.energized.pro/extensions/regional/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Social',
-        'domain',
-        'https://block.energized.pro/extensions/social/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('EnergizedProtection: Porn Lite',
-        'domain',
-        'https://block.energized.pro/extensions/porn-lite/formats/domains.txt',
-        'https://energized.pro/',
-        'https://app.energized.pro/',
-        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
-        'MIT')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Paulgb: BarbBlock Domain List',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('b70b5b11-a725-4f53-8c7d-339d6e323fbf',
+        'Paulgb: BarbBlock Domain List',
         'domain',
         'https://paulgb.github.io/BarbBlock/blacklists/domain-list.txt',
         'https://github.com/paulgb/BarbBlock',
@@ -1186,8 +1107,9 @@ values ('Paulgb: BarbBlock Domain List',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('AZORult Tracker: Domain List',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('636fd6c2-0762-431c-90d2-de5924cf7aa5',
+        'AZORult Tracker: Domain List',
         'domain',
         'https://azorult-tracker.net/api/list/domain?format=plain',
         'https://azorult-tracker.net/',
@@ -1196,8 +1118,9 @@ values ('AZORult Tracker: Domain List',
         'Open Database License')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('280blocker: Domain List',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('2390229f-a2ef-4788-be5a-e52c8991c0f2',
+        '280blocker: Domain List',
         'domain',
         'https://280blocker.net/files/280blocker_domain.txt',
         'https://280blocker.net',
@@ -1206,8 +1129,9 @@ values ('280blocker: Domain List',
         'Attribution-NonCommercial-NoDerivatives 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Ads',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('1f2274e9-b1ac-491a-a79f-813305fb318e',
+        'Block List Project: Ads',
         'hosts',
         'https://blocklistproject.github.io/Lists/ads.txt',
         'https://blocklist.site',
@@ -1216,8 +1140,9 @@ values ('Block List Project: Ads',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Tracking',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('76f7138b-fd58-4c3c-95b8-3b71c036af69',
+        'Block List Project: Tracking',
         'hosts',
         'https://blocklistproject.github.io/Lists/tracking.txt',
         'https://blocklist.site',
@@ -1226,8 +1151,9 @@ values ('Block List Project: Tracking',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Malware',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('8ec21f78-d11d-4d21-b001-d35cc3641b13',
+        'Block List Project: Malware',
         'hosts',
         'https://blocklistproject.github.io/Lists/malware.txt',
         'https://blocklist.site',
@@ -1236,8 +1162,9 @@ values ('Block List Project: Malware',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Phishing',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('69dc301a-7620-4eca-b513-39ec2559cb62',
+        'Block List Project: Phishing',
         'hosts',
         'https://blocklistproject.github.io/Lists/phishing.txt',
         'https://blocklist.site',
@@ -1246,8 +1173,9 @@ values ('Block List Project: Phishing',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Gambling',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('bd3069bf-8620-4db3-9331-723560167fe1',
+        'Block List Project: Gambling',
         'hosts',
         'https://blocklistproject.github.io/Lists/gambling.txt',
         'https://blocklist.site',
@@ -1256,8 +1184,9 @@ values ('Block List Project: Gambling',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Facebook',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('29ad72a8-359e-4b92-aa65-bfd64bf0dc49',
+        'Block List Project: Facebook',
         'hosts',
         'https://blocklistproject.github.io/Lists/facebook.txt',
         'https://blocklist.site',
@@ -1266,8 +1195,9 @@ values ('Block List Project: Facebook',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Abuse',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('01541fa6-0678-4da2-8aa3-6268448ad897',
+        'Block List Project: Abuse',
         'hosts',
         'https://blocklistproject.github.io/Lists/abuse.txt',
         'https://blocklist.site',
@@ -1276,8 +1206,9 @@ values ('Block List Project: Abuse',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Crypto',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('e0302610-4444-4774-ba3e-a19ad7f2ea11',
+        'Block List Project: Crypto',
         'hosts',
         'https://blocklistproject.github.io/Lists/crypto.txt',
         'https://blocklist.site',
@@ -1286,8 +1217,9 @@ values ('Block List Project: Crypto',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Drugs',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('3b957561-df82-49cc-a574-cb1fde80bf9b',
+        'Block List Project: Drugs',
         'hosts',
         'https://blocklistproject.github.io/Lists/drugs.txt',
         'https://blocklist.site',
@@ -1296,8 +1228,9 @@ values ('Block List Project: Drugs',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Fraud',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('2bb06ec6-4e91-42bc-9645-4741c2a8669f',
+        'Block List Project: Fraud',
         'hosts',
         'https://blocklistproject.github.io/Lists/fraud.txt',
         'https://blocklist.site',
@@ -1306,8 +1239,9 @@ values ('Block List Project: Fraud',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Piracy',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('c6b1420e-dbbe-49bd-a790-6d72707cf97b',
+        'Block List Project: Piracy',
         'hosts',
         'https://blocklistproject.github.io/Lists/piracy.txt',
         'https://blocklist.site',
@@ -1316,8 +1250,9 @@ values ('Block List Project: Piracy',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Porn',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('0a3dd008-af85-4859-9cda-3d74bb10acb7',
+        'Block List Project: Porn',
         'hosts',
         'https://blocklistproject.github.io/Lists/porn.txt',
         'https://blocklist.site',
@@ -1326,8 +1261,9 @@ values ('Block List Project: Porn',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Ransomware',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('86d91474-1316-4f41-a198-54806d6a5e82',
+        'Block List Project: Ransomware',
         'hosts',
         'https://blocklistproject.github.io/Lists/ransomware.txt',
         'https://blocklist.site',
@@ -1336,8 +1272,9 @@ values ('Block List Project: Ransomware',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Redirect',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('f7f9e8dd-d121-4e3d-b271-5f8ed189f223',
+        'Block List Project: Redirect',
         'hosts',
         'https://blocklistproject.github.io/Lists/redirect.txt',
         'https://blocklist.site',
@@ -1346,8 +1283,9 @@ values ('Block List Project: Redirect',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Scam',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('aaeea6b6-253a-4686-9158-cf10b4fcce29',
+        'Block List Project: Scam',
         'hosts',
         'https://blocklistproject.github.io/Lists/scam.txt',
         'https://blocklist.site',
@@ -1356,8 +1294,9 @@ values ('Block List Project: Scam',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Torrent',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('73537b3e-ba96-4734-a283-b91c94998164',
+        'Block List Project: Torrent',
         'hosts',
         'https://blocklistproject.github.io/Lists/torrent.txt',
         'https://blocklist.site',
@@ -1366,18 +1305,9 @@ values ('Block List Project: Torrent',
         'Unlicense')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Block List Project: Youtube',
-        'hosts',
-        'https://blocklistproject.github.io/Lists/youtube.txt',
-        'https://blocklist.site',
-        'https://github.com/blocklistproject/lists/issues',
-        'https://github.com/blocklistproject/Lists/blob/master/LICENSE',
-        'Unlicense')
-on conflict do nothing;
-
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('hBlock: Hosts Domains',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('a237508f-f0bf-4709-b626-67d2bbc801f8',
+        'hBlock: Hosts Domains',
         'domain',
         'https://hblock.molinero.dev/hosts_domains.txt',
         'https://hblock.molinero.dev/',
@@ -1386,8 +1316,9 @@ values ('hBlock: Hosts Domains',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Disconnect: Tracking',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('6a36a82f-56e1-4fa8-9988-831b5d834734',
+        'Disconnect: Tracking',
         'domain',
         'https://s3.amazonaws.com/lists.disconnect.me/simple_tracking.txt',
         'https://disconnect.me',
@@ -1396,8 +1327,9 @@ values ('Disconnect: Tracking',
         'GPLv3')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Yhonay: Anti popads.net',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('7840de38-a1b5-4508-bd6c-5fbff1512c24',
+        'Yhonay: Anti popads.net',
         'hosts',
         'https://raw.githubusercontent.com/Yhonay/antipopads/master/hosts',
         'https://github.com/Yhonay/antipopads',
@@ -1406,8 +1338,9 @@ values ('Yhonay: Anti popads.net',
         'Do What The F*ck You Want To Public License')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Infinitytec: Ads and trackers',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('d827ebe0-a8b1-48fa-8bf6-7d3c1673f561',
+        'Infinitytec: Ads and trackers',
         'hosts',
         'https://raw.githubusercontent.com/infinitytec/blocklists/master/ads-and-trackers.txt',
         'https://github.com/infinitytec/blocklists',
@@ -1416,8 +1349,9 @@ values ('Infinitytec: Ads and trackers',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Infinitytec: Scams and phishing',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('ae10e18f-29e3-4f5d-9330-06af34859412',
+        'Infinitytec: Scams and phishing',
         'hosts',
         'https://raw.githubusercontent.com/infinitytec/blocklists/master/scams-and-phishing.txt',
         'https://github.com/infinitytec/blocklists',
@@ -1426,8 +1360,9 @@ values ('Infinitytec: Scams and phishing',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Infinitytec: Medical Pseudoscience',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('d0ca74e6-b48d-4bf3-8107-60346d9a9637',
+        'Infinitytec: Medical Pseudoscience',
         'hosts',
         'https://raw.githubusercontent.com/infinitytec/blocklists/master/medicalpseudoscience.txt',
         'https://github.com/infinitytec/blocklists',
@@ -1436,8 +1371,9 @@ values ('Infinitytec: Medical Pseudoscience',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('Infinitytec: Possibilities',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('7cfee480-0dd6-485c-bd12-0b8a776950eb',
+        'Infinitytec: Possibilities',
         'hosts',
         'https://raw.githubusercontent.com/infinitytec/blocklists/master/possibilities.txt',
         'https://github.com/infinitytec/blocklists',
@@ -1446,8 +1382,9 @@ values ('Infinitytec: Possibilities',
         'MIT')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('KriskIntel: Malicious Domains',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('63700e08-1e02-480a-ab98-15028392e129',
+        'KriskIntel: Malicious Domains',
         'domain',
         'https://kriskintel.com/feeds/ktip_malicious_domains.txt',
         'https://kriskintel.com/',
@@ -1456,8 +1393,9 @@ values ('KriskIntel: Malicious Domains',
         'Creative Commons Attribution 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('KriskIntel: Covid-19 Phishing Feed',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('8a6ca4dd-b84d-4653-a6e0-5d35e11a3fa5',
+        'KriskIntel: Covid-19 Phishing Feed',
         'domain',
         'https://kriskintel.com/feeds/ktip_covid_domains.txt',
         'https://kriskintel.com/',
@@ -1466,8 +1404,9 @@ values ('KriskIntel: Covid-19 Phishing Feed',
         'Creative Commons Attribution 4.0 International')
 on conflict do nothing;
 
-insert into blocklist(name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('KriskIntel: Ransomware Feeds',
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('e6706f3c-b520-44c8-bec6-ab128fc35e36',
+        'KriskIntel: Ransomware Feeds',
         'domain',
         'https://kriskintel.com/feeds/ktip_ransomware_feeds.txt',
         'https://kriskintel.com/',
@@ -1551,30 +1490,4 @@ on conflict do nothing;
 
 insert into list_tag(blocklist_id, value)
 values ('99e739aa-1ec4-4384-890d-eea9c1980ab9', 'source')
-on conflict do nothing;
-
-insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('18d6705c-0634-4b87-88dd-583ea0c5cabd',
-        'Socram: Not on my shift!',
-        'domain',
-        'https://orca.pet/notonmyshift/domains.txt',
-        'https://orca.pet/notonmyshift/',
-        'https://github.com/socram8888/not-on-my-shift/issues',
-        'https://orca.pet/#license',
-        'ISC license')
-on conflict do nothing;
-
-insert into list_tag(blocklist_id, value)
-values ('99e739aa-1ec4-4384-890d-eea9c1980ab9', 'source')
-on conflict do nothing;
-
-insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('b2d7e298-3e9b-4fff-a769-2e7dfc23f4b0',
-        'The Quantum Alpha: The_Quantum_Ad-List.txt',
-        'hosts',
-        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/For%20hosts%20file/The_Quantum_Ad-List.txt',
-        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list',
-        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/issues',
-        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/blob/master/LICENSE',
-        'Unlicense')
 on conflict do nothing;
