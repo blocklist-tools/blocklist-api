@@ -220,9 +220,7 @@ public class BlocklistApiApplication {
                                                @Validated @RequestBody String entryValue) {
         assertAuthenticated(authToken, "endEntryPeriod");
         var domain = getDomainOrElseThrow(entryValue);
-        LOGGER.error("Ending entryPeriod for domain <{}>, blocklistId {}, and lastIncludedVersion: {}", domain, blocklistId, lastIncludedVersionId);
         var entryPeriod = entryPeriodRepository.findMostRecentByBlocklistIdAndEntryValue(blocklistId, domain.toString()).orElseThrow();
-        LOGGER.error("Ending entryPeriod: {}", entryPeriod.getId());
         entryPeriod.setEndVersionId(lastIncludedVersionId);
         entryPeriodRepository.save(entryPeriod);
         return ResponseEntity.status(201).build();
