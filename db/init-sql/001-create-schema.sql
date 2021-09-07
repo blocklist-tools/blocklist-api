@@ -1097,6 +1097,127 @@ values ('120524b2-d9e9-4325-8f38-ab5a987af58c',
 on conflict do nothing;
 
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('26fa5575-9c25-42b6-a2cf-82590ecad1ce',
+        'EnergizedProtection: Spark',
+        'domain',
+        'https://block.energized.pro/spark/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('2f24cc50-3753-43e9-b208-1ce6d6db8a52',
+        'EnergizedProtection: Blu',
+        'domain',
+        'https://block.energized.pro/blu/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('0f7d3c1b-6cb2-41fc-8497-c7c7a3f760ed',
+        'EnergizedProtection: Blu GO',
+        'domain',
+        'https://block.energized.pro/bluGo/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('b90e245a-61ef-4dc4-a9cb-16b9e29b57f1',
+        'EnergizedProtection: Basic',
+        'domain',
+        'https://block.energized.pro/basic/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('f1d1420c-215c-40d4-a9fd-db1b5bbf25d1',
+        'EnergizedProtection: Porn',
+        'domain',
+        'https://block.energized.pro/porn/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('82596c45-cdbe-4cde-b0b7-1fac29f04ba5',
+        'EnergizedProtection: Ultimate',
+        'domain',
+        'https://block.energized.pro/ultimate/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('459772f6-e11d-4a04-9acd-10a112fdfba9',
+        'EnergizedProtection: Unified',
+        'domain',
+        'https://block.energized.pro/unified/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('3d15109b-eeab-4704-ad30-78b2bd7d86a1',
+        'EnergizedProtection: Xtreme',
+        'domain',
+        'https://block.energized.pro/extensions/xtreme/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('b3a7b715-8a14-467e-9cda-710c47fe9fdd',
+        'EnergizedProtection: Regional',
+        'domain',
+        'https://block.energized.pro/extensions/regional/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('c791e72b-624c-4224-8709-76d2edb349b3',
+        'EnergizedProtection: Social',
+        'domain',
+        'https://block.energized.pro/extensions/social/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('f9159025-71fd-4f7c-98a1-cab06935e5ce',
+        'EnergizedProtection: Porn Lite',
+        'domain',
+        'https://block.energized.pro/extensions/porn-lite/formats/domains.txt',
+        'https://energized.pro/',
+        'https://app.energized.pro/',
+        'https://github.com/EnergizedProtection/block/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
 values ('b70b5b11-a725-4f53-8c7d-339d6e323fbf',
         'Paulgb: BarbBlock Domain List',
         'domain',
@@ -1490,4 +1611,15 @@ on conflict do nothing;
 
 insert into list_tag(blocklist_id, value)
 values ('99e739aa-1ec4-4384-890d-eea9c1980ab9', 'source')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('529600aa-937a-4d76-8cd0-ca97bfe4bc5d',
+        'StopForumSpam: Toxic Domains (exact name match)',
+        'domain',
+        'https://stopforumspam.com/downloads/toxic_domains_whole.txt',
+        'https://www.stopforumspam.com/',
+        'https://www.stopforumspam.com/removal',
+        'https://www.stopforumspam.com/license',
+        'Attribution-NonCommercial-NoDerivs 3.0 Unported')
 on conflict do nothing;

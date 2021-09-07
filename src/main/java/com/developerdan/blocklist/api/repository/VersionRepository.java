@@ -15,7 +15,8 @@ public interface VersionRepository extends PagingAndSortingRepository<Version, U
     @Query(value = """
                 select e.value from version v
                     join entry_period_with_dates ep
-                         on ep.start_version_id = v.id
+                         on ep.blocklist_id = v.blocklist_id
+                         and (ep.start_version_id = v.id
                              or ep.end_version_id = v.id
                              or (
                                     v.created_on >= ep.period_start
@@ -23,7 +24,7 @@ public interface VersionRepository extends PagingAndSortingRepository<Version, U
                                             ep.period_end is null or
                                             v.created_on <= ep.period_end
                                     )
-                            )
+                            ))
                     join entry e on ep.entry_id = e.id
                 where v.id = :versionId and v.is_fully_loaded = true
             """, nativeQuery = true

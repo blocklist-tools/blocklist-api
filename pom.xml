@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>16</java.version>
-        <blocklisttools.version>1.0.2</blocklisttools.version>
+        <blocklisttools.version>1.0.3</blocklisttools.version>
     </properties>
 
     <dependencies>

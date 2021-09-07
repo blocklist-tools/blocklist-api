@@ -11,12 +11,13 @@ public interface EntryPeriodRepository extends PagingAndSortingRepository<EntryP
 
     @Query(value = """
             select ep.* from entry_period ep
-                left join version sv ON ep.start_version_id = sv.id and sv.is_fully_loaded is true
+                join version sv ON ep.start_version_id = sv.id and sv.is_fully_loaded is true
+                join entry e on ep.entry_id = e.id
                 where ep.blocklist_id = :blocklistId
-                  and ep.entry_id = :entryId
+                  and e.value = :entryValue
                 order by sv.created_on desc
                 limit 1
             """, nativeQuery = true
     )
-    public Optional<EntryPeriod> findMostRecentByBlocklistIdAndEntryId(UUID blocklistId, UUID entryId);
+    public Optional<EntryPeriod> findMostRecentByBlocklistIdAndEntryValue(UUID blocklistId, String entryValue);
 }
