@@ -40,7 +40,7 @@ import java.util.stream.Collectors;
 
 @SpringBootApplication
 @RestController
-@CrossOrigin(origins = {"http://localhost:3000"})
+@CrossOrigin(origins = {"https://blocklist-tools.developerdan.com"})
 public class BlocklistApiApplication {
 
     private static final String AUTH_HEADER_NAME = "Authorization-Token";

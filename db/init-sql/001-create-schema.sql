@@ -213,7 +213,7 @@ values ('1467029f-0ace-4b3a-9a90-00f60475015b',
         'domain',
         'https://dbl.oisd.nl/',
         'https://oisd.nl/',
-        'https://oisd.nl/?p=fp',
+        'https://oisd.nl/reportfalsepositive',
         'All rights reserved')
 on conflict do nothing;
 
@@ -229,7 +229,7 @@ values ('93b945d3-5005-4bd9-8faf-f2bb1a16831c',
         'domain',
         'https://dbl.oisd.nl/light/',
         'https://oisd.nl/',
-        'https://oisd.nl/?p=fp',
+        'https://oisd.nl/reportfalsepositive',
         'All rights reserved')
 on conflict do nothing;
 
@@ -237,6 +237,20 @@ insert into list_tag(blocklist_id, value)
 values ('93b945d3-5005-4bd9-8faf-f2bb1a16831c', 'unified')
 on conflict do nothing;
 
+-- OISD: Domain Extra
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_type)
+values ('c00b1dd1-faa8-4d31-b978-f85377013d8c',
+        'OISD: Domain Extra',
+        'domain',
+        'https://dbl.oisd.nl/extra/',
+        'https://oisd.nl/',
+        'https://oisd.nl/reportfalsepositive',
+        'All rights reserved')
+on conflict do nothing;
+
+insert into list_tag(blocklist_id, value)
+values ('c00b1dd1-faa8-4d31-b978-f85377013d8c', 'unified')
+on conflict do nothing;
 
 -- Llacb47 mischosts: TikTok Block
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
@@ -269,23 +283,6 @@ on conflict do nothing;
 
 insert into list_tag(blocklist_id, value)
 values ('91a41894-bfbc-4000-81be-178ca0691fdf', 'source')
-on conflict do nothing;
-
-
--- RiskAnalytics: Malware Domain Blocklist
-insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('390cfeb8-2e4f-4a5c-9dd0-92dd63fc8a86',
-        'RiskAnalytics: Malware Domain Blocklist',
-        'domain',
-        'https://mirror1.malwaredomains.com/files/justdomains',
-        'http://www.malwaredomains.com/',
-        'http://www.malwaredomains.com/?page_id=13',
-        'http://www.malwaredomains.com/?page_id=1508',
-        'Noncommercial')
-on conflict do nothing;
-
-insert into list_tag(blocklist_id, value)
-values ('390cfeb8-2e4f-4a5c-9dd0-92dd63fc8a86', 'source')
 on conflict do nothing;
 
 
@@ -1240,17 +1237,6 @@ values ('636fd6c2-0762-431c-90d2-de5924cf7aa5',
 on conflict do nothing;
 
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('2390229f-a2ef-4788-be5a-e52c8991c0f2',
-        '280blocker: Domain List',
-        'domain',
-        'https://280blocker.net/files/280blocker_domain.txt',
-        'https://280blocker.net',
-        'https://280blocker.net/checkblock/',
-        'https://creativecommons.org/licenses/by-nc-nd/4.0/',
-        'Attribution-NonCommercial-NoDerivatives 4.0 International')
-on conflict do nothing;
-
-insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
 values ('1f2274e9-b1ac-491a-a79f-813305fb318e',
         'Block List Project: Ads',
         'hosts',
@@ -1622,4 +1608,147 @@ values ('529600aa-937a-4d76-8cd0-ca97bfe4bc5d',
         'https://www.stopforumspam.com/removal',
         'https://www.stopforumspam.com/license',
         'Attribution-NonCommercial-NoDerivs 3.0 Unported')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('998473f2-1b0d-4308-a487-f5395d8fa705',
+        'Neo Dev: Host',
+        'hosts',
+        'https://raw.githubusercontent.com/neodevpro/neodevhost/master/host',
+        'https://neodev.team/',
+        'https://github.com/neodevpro/neodevhost/issues',
+        'https://github.com/neodevpro/neodevhost/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('c6500d29-38a2-448f-ab44-9c7ebcd0390b',
+        'Badmojr 1Hosts: Mini',
+        'domain',
+        'https://badmojr.github.io/1Hosts/mini/domains.txt',
+        'https://o0.pages.dev/',
+        'https://github.com/badmojr/1Hosts/issues',
+        'https://github.com/badmojr/1Hosts/blob/master/LICENSE',
+        'MPL-2.0')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('ce8751a1-0b42-4f08-b5d2-d1bc6b856e04',
+        'Badmojr 1Hosts: Lite',
+        'domain',
+        'https://badmojr.github.io/1Hosts/Lite/domains.txt',
+        'https://o0.pages.dev/',
+        'https://github.com/badmojr/1Hosts/issues',
+        'https://github.com/badmojr/1Hosts/blob/master/LICENSE',
+        'MPL-2.0')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('d414c31a-3c55-4a84-bac5-3c3940e70d4c',
+        'Badmojr 1Hosts: Pro',
+        'domain',
+        'https://badmojr.github.io/1Hosts/Pro/domains.txt',
+        'https://o0.pages.dev/',
+        'https://github.com/badmojr/1Hosts/issues',
+        'https://github.com/badmojr/1Hosts/blob/master/LICENSE',
+        'MPL-2.0')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('98f8c690-db7d-4112-a233-8f62111b0b62',
+        'Badmojr 1Hosts: Xtra',
+        'domain',
+        'https://badmojr.github.io/1Hosts/Xtra/domains.txt',
+        'https://o0.pages.dev/',
+        'https://github.com/badmojr/1Hosts/issues',
+        'https://github.com/badmojr/1Hosts/blob/master/LICENSE',
+        'MPL-2.0')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('b171bc46-f2c0-4690-9ee6-476937b44292',
+        'Stamparm: Maltrail Blacklist',
+        'domain',
+        'https://raw.githubusercontent.com/stamparm/aux/master/maltrail-malware-domains.txt',
+        'https://github.com/stamparm/maltrail#blacklist',
+        'https://github.com/stamparm/maltrail/issues',
+        'https://github.com/stamparm/maltrail/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('480f9d7a-1db0-46fe-bad1-223d18683060',
+        'DRSDavidSoft: Ad and tracker servers',
+        'domain',
+        'https://raw.githubusercontent.com/DRSDavidSoft/additional-hosts/master/domains/blacklist/adservers-and-trackers.txt',
+        'https://github.com/DRSDavidSoft/additional-hosts',
+        'https://github.com/DRSDavidSoft/additional-hosts/issues',
+        'https://github.com/DRSDavidSoft/additional-hosts/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('c071c638-ea8d-4bb6-8716-f0f5247ea4be',
+        'DRSDavidSoft: Activation servers',
+        'domain',
+        'https://raw.githubusercontent.com/DRSDavidSoft/additional-hosts/master/domains/blacklist/activation.txt',
+        'https://github.com/DRSDavidSoft/additional-hosts',
+        'https://github.com/DRSDavidSoft/additional-hosts/issues',
+        'https://github.com/DRSDavidSoft/additional-hosts/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('cfcfad60-70ab-4115-8799-33b217004c52',
+        'DRSDavidSoft: Fake domains',
+        'domain',
+        'https://raw.githubusercontent.com/DRSDavidSoft/additional-hosts/master/domains/blacklist/fake-domains.txt',
+        'https://github.com/DRSDavidSoft/additional-hosts',
+        'https://github.com/DRSDavidSoft/additional-hosts/issues',
+        'https://github.com/DRSDavidSoft/additional-hosts/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('479ad4e1-103b-4f68-bc0c-9bdc3118d4f5',
+        'DRSDavidSoft: Search blacklist',
+        'domain',
+        'https://raw.githubusercontent.com/DRSDavidSoft/additional-hosts/master/domains/blacklist/search-blacklist.txt',
+        'https://github.com/DRSDavidSoft/additional-hosts',
+        'https://github.com/DRSDavidSoft/additional-hosts/issues',
+        'https://github.com/DRSDavidSoft/additional-hosts/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('3b6e7dbd-3cca-4ba3-8202-ef7387be4cdb',
+        'DRSDavidSoft: Unwanted Iranian domains',
+        'domain',
+        'https://raw.githubusercontent.com/DRSDavidSoft/additional-hosts/master/domains/blacklist/unwanted-iranian.txt',
+        'https://github.com/DRSDavidSoft/additional-hosts',
+        'https://github.com/DRSDavidSoft/additional-hosts/issues',
+        'https://github.com/DRSDavidSoft/additional-hosts/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('24d51b02-fbcc-491e-bfb5-4f34b7d8057b',
+        'Autinerd: Anti Axel Springer hosts file',
+        'hosts',
+        'https://raw.githubusercontent.com/autinerd/anti-axelspringer-hosts/master/axelspringer-hosts',
+        'https://github.com/autinerd/anti-axelspringer-hosts',
+        'https://github.com/autinerd/anti-axelspringer-hosts/issues',
+        'https://github.com/autinerd/anti-axelspringer-hosts/blob/master/LICENSE',
+        'GPLv3')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('924f982f-09fb-487b-a0fb-feaa6ff45570',
+        'Hell-sh: Evil Domains',
+        'domains',
+        'https://raw.githubusercontent.com/hell-sh/Evil-Domains/master/evil-domains.txt',
+        'https://github.com/hell-sh/Evil-Domains',
+        'https://github.com/hell-sh/Evil-Domains/issues',
+        'https://github.com/hell-sh/Evil-Domains/blob/master/LICENSE',
+        'Unlicense')
 on conflict do nothing;
