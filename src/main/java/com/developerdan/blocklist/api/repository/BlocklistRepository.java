@@ -16,7 +16,11 @@ public interface BlocklistRepository extends PagingAndSortingRepository<Blocklis
                    epwd.period_end                                                              as removedOn,
                    epwd.period_start                                                            as addedOn,
                    (select min(created_on) from version where blocklist_id = epwd.blocklist_id) as listAddedOn,
-                   (select name from blocklist where id = epwd.blocklist_id)                    as blocklistName
+                   (select name from blocklist where id = epwd.blocklist_id)                    as blocklistName,
+                   case
+                        when epwd.period_end is null then 0
+                        else 1
+                   end as stillBlocked
             from entry_period_with_dates epwd
                      join entry on epwd.entry_id = entry.id
             where entry.value = :query
@@ -26,6 +30,7 @@ public interface BlocklistRepository extends PagingAndSortingRepository<Blocklis
                 where blocklist_id = epwd.blocklist_id
                   and entry_id = epwd.entry_id
             )
+            order by stillBlocked, listAddedOn
             """, nativeQuery = true
     )
     Collection<EntrySummary> findAllSummariesByEntry(String query);

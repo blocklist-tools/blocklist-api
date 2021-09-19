@@ -86,6 +86,19 @@ create unique index if not exists entry_period_entry_id_start_version_id_uindex
 create unique index if not exists entry_period_entry_id_end_version_id_uindex
     on entry_period(entry_id, end_version_id);
 
+-- deleting blocklists
+create index if not exists entry_period_blocklist_id_index
+    on entry_period(blocklist_id);
+
+create index if not exists entry_period_start_version_id_index
+    on entry_period(start_version_id);
+
+create index if not exists entry_period_end_version_id_index
+    on entry_period(end_version_id);
+
+create index if not exists version_blocklist_id_index
+    on version(blocklist_id);
+
 
 -- Developer Dan: Ads & Tracking
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
@@ -239,7 +252,7 @@ on conflict do nothing;
 
 -- OISD: Domain Extra
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_type)
-values ('c00b1dd1-faa8-4d31-b978-f85377013d8c',
+values ('8da342f1-3ed3-4154-a0c5-69a80840a44f',
         'OISD: Domain Extra',
         'domain',
         'https://dbl.oisd.nl/extra/',
@@ -249,7 +262,7 @@ values ('c00b1dd1-faa8-4d31-b978-f85377013d8c',
 on conflict do nothing;
 
 insert into list_tag(blocklist_id, value)
-values ('c00b1dd1-faa8-4d31-b978-f85377013d8c', 'unified')
+values ('8da342f1-3ed3-4154-a0c5-69a80840a44f', 'unified')
 on conflict do nothing;
 
 -- Llacb47 mischosts: TikTok Block
@@ -1743,9 +1756,9 @@ values ('24d51b02-fbcc-491e-bfb5-4f34b7d8057b',
 on conflict do nothing;
 
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
-values ('924f982f-09fb-487b-a0fb-feaa6ff45570',
+values ('448e2b56-5151-431a-8ad8-8002fdeb1606',
         'Hell-sh: Evil Domains',
-        'domains',
+        'domain',
         'https://raw.githubusercontent.com/hell-sh/Evil-Domains/master/evil-domains.txt',
         'https://github.com/hell-sh/Evil-Domains',
         'https://github.com/hell-sh/Evil-Domains/issues',
