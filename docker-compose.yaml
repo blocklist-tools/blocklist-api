@@ -3,7 +3,7 @@ version: '3.8'
 services:
   db:
     hostname: db
-    image: postgres:13.3
+    image: postgres:13.4
     restart: always
     secrets:
       - postgres_password
@@ -17,13 +17,23 @@ services:
       - ./db/backups:/var/backups
     ports:
       - 8899:5432
+    command: >
+      -c max_wal_size=2GB
 
   api:
     restart: always
     build:
       context: ./
+    secrets:
+      - postgres_password
+      - auth_token
+    environment:
+      POSTGRES_USER: blocklist
+      POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
+      AUTH_TOKEN_FILE: /run/secrets/auth_token
+      DNS_SERVERS: 192.168.4.113:5053
     ports:
-      - 8181:8080
+      - 8484:8080
 
   dev:
     image: maven:3.8-openjdk-16-slim
@@ -35,6 +45,7 @@ services:
       POSTGRES_USER: blocklist
       POSTGRES_PASSWORD_FILE: /run/secrets/postgres_password
       AUTH_TOKEN_FILE: /run/secrets/auth_token
+      DNS_SERVERS: 192.168.4.113:5053
     secrets:
       - postgres_password
       - auth_token
@@ -49,7 +60,7 @@ services:
       - "${HOME}/.m2:/root/.m2"
     working_dir: /opt/blocklist-api
     ports:
-      - 8181:8080
+      - 8484:8080
 
 secrets:
   postgres_password:

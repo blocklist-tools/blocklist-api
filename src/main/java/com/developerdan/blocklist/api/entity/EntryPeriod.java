@@ -25,6 +25,12 @@ public class EntryPeriod {
     @Column
     private UUID endVersionId;
 
+    public EntryPeriod(UUID blocklistId, UUID entryId, UUID startVersionId) {
+        this.blocklistId = blocklistId;
+        this.entryId = entryId;
+        this.startVersionId = startVersionId;
+    }
+
     public EntryPeriod() {
         // bean
     }
