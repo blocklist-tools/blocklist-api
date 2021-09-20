@@ -9,5 +9,5 @@ public interface EntrySummary {
     Instant getAddedOn();
     String getRemovedVersionId();
     Instant getRemovedOn();
-    String getListAddedOn();
+    Instant getListAddedOn();
 }
