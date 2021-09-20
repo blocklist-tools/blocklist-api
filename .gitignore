@@ -2,5 +2,5 @@
 .secrets
 target
 db/data
-db/backups
+db/backups/*.sql
 *.iml
