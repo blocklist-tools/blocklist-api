@@ -30,7 +30,7 @@ public interface BlocklistRepository extends PagingAndSortingRepository<Blocklis
                 where blocklist_id = epwd.blocklist_id
                   and entry_id = epwd.entry_id
             )
-            order by stillBlocked, listAddedOn
+            order by stillBlocked, addedOn
             """, nativeQuery = true
     )
     Collection<EntrySummary> findAllSummariesByEntry(String query);
