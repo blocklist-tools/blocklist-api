@@ -184,6 +184,22 @@ insert into list_tag(blocklist_id, value)
 values ('afee319e-f434-4abf-96ae-f580493707ed', 'source')
 on conflict do nothing;
 
+-- Developer Dan: Dating Services
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('fa123cbc-1197-4447-af43-0f6e6fe12722',
+        'Developer Dan: Dating Services',
+        'hosts',
+        'https://www.github.developerdan.com/hosts/lists/dating-services-extended.txt',
+        'https://www.github.developerdan.com/hosts/',
+        'https://github.com/lightswitch05/hosts/issues',
+        'https://github.com/lightswitch05/hosts/blob/master/LICENSE',
+        'Apache-2.0')
+on conflict do nothing;
+
+insert into list_tag(blocklist_id, value)
+values ('afee319e-f434-4abf-96ae-f580493707ed', 'source')
+on conflict do nothing;
+
 
 -- Steven Black Hosts: Unified
 insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
