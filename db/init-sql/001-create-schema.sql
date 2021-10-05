@@ -1781,3 +1781,91 @@ values ('448e2b56-5151-431a-8ad8-8002fdeb1606',
         'https://github.com/hell-sh/Evil-Domains/blob/master/LICENSE',
         'Unlicense')
 on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('a2adc136-11f6-4006-b2ca-338ca1b09140',
+        'Bkrucarci: Turk Adlist',
+        'hosts',
+        'https://raw.githubusercontent.com/bkrucarci/turk-adlist/master/hosts',
+        'https://github.com/bkrucarci/turk-adlist',
+        'https://github.com/bkrucarci/turk-adlist/issues',
+        'https://github.com/bkrucarci/turk-adlist/blob/master/license',
+        'Creative Commons Attribution-ShareAlike 3.0 Unported')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('c4097a9f-53de-4886-951d-b610be1c516a',
+        'Soteria Nou: Domain List - Ads',
+        'domain',
+        'https://raw.githubusercontent.com/soteria-nou/domain-list/master/ads.txt',
+        'https://github.com/soteria-nou/domain-list',
+        'https://github.com/soteria-nou/domain-list/issues',
+        'https://github.com/soteria-nou/domain-list/blob/master/README.md',
+        'Non-commercial with attribution')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('22207bfd-f30a-4346-b010-7d06239dcbcc',
+        'Soteria Nou: Domain List - Affiliate',
+        'domain',
+        'https://raw.githubusercontent.com/soteria-nou/domain-list/master/affiliate.txt',
+        'https://github.com/soteria-nou/domain-list',
+        'https://github.com/soteria-nou/domain-list/issues',
+        'https://github.com/soteria-nou/domain-list/blob/master/README.md',
+        'Non-commercial with attribution')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('57aaa434-cfe5-42f9-bb38-f10e3d25be36',
+        'Soteria Nou: Domain List - Analytics',
+        'domain',
+        'https://raw.githubusercontent.com/soteria-nou/domain-list/master/analytics.txt',
+        'https://github.com/soteria-nou/domain-list',
+        'https://github.com/soteria-nou/domain-list/issues',
+        'https://github.com/soteria-nou/domain-list/blob/master/README.md',
+        'Non-commercial with attribution')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('78ad8fd9-505f-432c-bae9-25e07ec9bed0',
+        'Soteria Nou: Domain List - Enrichments',
+        'domain',
+        'https://raw.githubusercontent.com/soteria-nou/domain-list/master/enrichments.txt',
+        'https://github.com/soteria-nou/domain-list',
+        'https://github.com/soteria-nou/domain-list/issues',
+        'https://github.com/soteria-nou/domain-list/blob/master/README.md',
+        'Non-commercial with attribution')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('72c47f9c-0994-4014-8976-e4dc0b582e55',
+        'Soteria Nou: Domain List - Fake',
+        'domain',
+        'https://raw.githubusercontent.com/soteria-nou/domain-list/master/fake.txt',
+        'https://github.com/soteria-nou/domain-list',
+        'https://github.com/soteria-nou/domain-list/issues',
+        'https://github.com/soteria-nou/domain-list/blob/master/README.md',
+        'Non-commercial with attribution')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('6e9f3552-5835-4c05-8f81-b5ee03e4717e',
+        'Soteria Nou: Domain List - Widgets',
+        'domain',
+        'https://raw.githubusercontent.com/soteria-nou/domain-list/master/widgets.txt',
+        'https://github.com/soteria-nou/domain-list',
+        'https://github.com/soteria-nou/domain-list/issues',
+        'https://github.com/soteria-nou/domain-list/blob/master/README.md',
+        'Non-commercial with attribution')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('444a6eba-5083-4e58-8d29-30b52965ca34',
+        'Durablenapkin: Scam Blocklist',
+        'hosts',
+        'https://raw.githubusercontent.com/durablenapkin/scamblocklist/master/hosts.txt',
+        'https://github.com/durablenapkin/scamblocklist',
+        'https://github.com/durablenapkin/scamblocklist/issues',
+        'https://github.com/durablenapkin/scamblocklist/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
