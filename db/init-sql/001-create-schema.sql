@@ -86,6 +86,7 @@ create unique index if not exists entry_period_entry_id_start_version_id_uindex
 create unique index if not exists entry_period_entry_id_end_version_id_uindex
     on entry_period(entry_id, end_version_id);
 
+
 -- deleting blocklists
 create index if not exists entry_period_blocklist_id_index
     on entry_period(blocklist_id);
@@ -1868,4 +1869,26 @@ values ('444a6eba-5083-4e58-8d29-30b52965ca34',
         'https://github.com/durablenapkin/scamblocklist/issues',
         'https://github.com/durablenapkin/scamblocklist/blob/master/LICENSE',
         'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('c20c14d9-04e6-488c-83f3-65455b100719',
+        'MetaMask: Scam Blocklist',
+        'hosts',
+        'https://raw.githubusercontent.com/MetaMask/eth-phishing-detect/master/src/hosts.txt',
+        'https://github.com/MetaMask/eth-phishing-detect',
+        'https://github.com/MetaMask/eth-phishing-detect/issues',
+        'https://github.com/MetaMask/eth-phishing-detect/blob/master/LICENSE',
+        'Don''t be a dick')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('229a166a-7fb7-40e7-af26-91cdea004d96',
+        'Tg12: Pihole PhishTank List',
+        'domain',
+        'https://raw.githubusercontent.com/tg12/pihole-phishtank-list/master/list/phish_domains.txt',
+        'https://github.com/tg12/pihole-phishtank-list',
+        'https://github.com/tg12/pihole-phishtank-list/issues',
+        'https://github.com/tg12/pihole-phishtank-list/blob/master/README.md',
+        'Unknown')
 on conflict do nothing;
