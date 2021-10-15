@@ -63,8 +63,14 @@ SELECT ep.*,
        sv.created_on AS period_start,
        ev.created_on AS period_end
 FROM entry_period ep
-         LEFT JOIN version sv ON ep.start_version_id = sv.id and sv.is_fully_loaded is true
-         LEFT JOIN version ev ON ep.end_version_id = ev.id and ev.is_fully_loaded is true;
+         LEFT JOIN version sv ON
+             ep.start_version_id = sv.id
+                 and ep.blocklist_id = sv.blocklist_id
+                 and sv.is_fully_loaded is true
+         LEFT JOIN version ev ON
+             ep.end_version_id = ev.id
+                 and ep.blocklist_id = ev.blocklist_id
+                 and ev.is_fully_loaded is true;
 
 
 create unique index if not exists version_blocklist_id_created_on_uindex
@@ -1892,3 +1898,48 @@ values ('229a166a-7fb7-40e7-af26-91cdea004d96',
         'https://github.com/tg12/pihole-phishtank-list/blob/master/README.md',
         'Unknown')
 on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('ef581f71-e703-4f65-be8d-6c9690f55055',
+        'Ultimate Hosts Blacklist: Domains',
+        'domain',
+        'https://hosts.ubuntu101.co.za/domains.list',
+        'https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist',
+        'https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist',
+        'https://github.com/Ultimate-Hosts-Blacklist/Ultimate.Hosts.Blacklist/blob/master/LICENSE.md',
+        'MIT')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('d06c39c8-cfe2-43c7-b7a1-c32863474d26',
+        'The Quantum Ad-List: Hosts',
+        'hosts',
+        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/raw/master/For%20hosts%20file/The_Quantum_Ad-List.txt',
+        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list',
+        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/issues',
+        'https://gitlab.com/The_Quantum_Alpha/the-quantum-ad-list/-/blob/master/LICENSE',
+        'Unlicense')
+on conflict do nothing;
+
+insert into blocklist(id, name, format, download_url, homepage_url, issues_url, license_url, license_type)
+values ('121b9eb6-bada-4d85-9cb4-226eb7d13a22',
+        'Oneoffdallas: DoH Servers List',
+        'hosts',
+        'https://raw.githubusercontent.com/oneoffdallas/dohservers/master/list.txt',
+        'https://github.com/oneoffdallas/dohservers',
+        'https://github.com/oneoffdallas/dohservers/issues',
+        'https://github.com/oneoffdallas/dohservers/blob/master/LICENSE',
+        'MIT')
+on conflict do nothing;
+
+-- select count(*) from version;
+-- select count(*) from blocklist;
+-- select count(*) from entry;
+-- select sum(num_entries) from version where is_fully_loaded=true;
+-- select pg_size_pretty(pg_database_size('blocklist'));
+
+-- select (select count(*) from version) as versions,
+--        (select count(*) from blocklist) as blocklists,
+--        (select count(*) from entry) as domains,
+--        (select sum(num_entries) from version) as entries,
+--        (select pg_size_pretty(pg_database_size('blocklist'))) as size

@@ -27,6 +27,7 @@ public interface VersionRepository extends PagingAndSortingRepository<Version, U
                             ))
                     join entry e on ep.entry_id = e.id
                 where v.id = :versionId and v.is_fully_loaded = true
+                      and v.blocklist_id = (select blocklist_id from version where id = :versionId)
             """, nativeQuery = true
     )
     public Collection<String> findAllEntriesByVersion(UUID versionId);
