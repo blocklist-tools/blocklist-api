@@ -15,8 +15,8 @@
     <description>Blocklist API</description>
 
     <properties>
-        <java.version>16</java.version>
-        <blocklisttools.version>1.0.4</blocklisttools.version>
+        <java.version>17</java.version>
+        <blocklisttools.version>1.1.0</blocklisttools.version>
     </properties>
 
     <dependencies>

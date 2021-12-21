@@ -3,4 +3,5 @@
 target
 db/data
 db/backups/*.sql
+db/data-backup
 *.iml
