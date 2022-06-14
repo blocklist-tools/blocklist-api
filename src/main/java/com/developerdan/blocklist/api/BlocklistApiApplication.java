@@ -9,6 +9,7 @@ import com.developerdan.blocklist.api.repository.BlocklistRepository;
 import com.developerdan.blocklist.api.repository.EntryPeriodRepository;
 import com.developerdan.blocklist.api.repository.EntryRepository;
 import com.developerdan.blocklist.api.repository.VersionRepository;
+import com.developerdan.blocklist.api.responses.DataStats;
 import com.developerdan.blocklist.api.responses.EntrySearchResponse;
 import com.developerdan.blocklist.tools.DnsQuery;
 import com.developerdan.blocklist.tools.DnsResponse;
@@ -224,6 +225,14 @@ public class BlocklistApiApplication {
         entryPeriod.setEndVersionId(lastIncludedVersionId);
         entryPeriodRepository.save(entryPeriod);
         return ResponseEntity.status(201).build();
+    }
+
+    @GetMapping("/stats")
+    public ResponseEntity<DataStats> stats() {
+        var stats = blocklistRepository.getStats();
+        return ResponseEntity.ok()
+                .headers(buildCacheHeaders(Duration.ofDays(1)))
+                .body(stats);
     }
 
     private Entry loadOrCreateEntry(Domain domain) {

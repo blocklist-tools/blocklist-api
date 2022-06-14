@@ -1,6 +1,7 @@
 package com.developerdan.blocklist.api.repository;
 
 import com.developerdan.blocklist.api.entity.Blocklist;
+import com.developerdan.blocklist.api.responses.DataStats;
 import com.developerdan.blocklist.api.responses.EntrySummary;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.PagingAndSortingRepository;
@@ -34,4 +35,14 @@ public interface BlocklistRepository extends PagingAndSortingRepository<Blocklis
             """, nativeQuery = true
     )
     Collection<EntrySummary> findAllSummariesByEntry(String query);
+
+    @Query(value = """
+             select (select count(*) from version) as versions,
+                    (select count(*) from blocklist) as blocklists,
+                    (select count(*) from entry) as domains,
+                    (select sum(num_entries) from version) as entries,
+                    (select pg_size_pretty(pg_database_size('blocklist'))) as size
+            """, nativeQuery = true
+    )
+    DataStats getStats();
 }
